@@ -128,24 +128,57 @@ h2::after{
 
 .section p{color:var(--text);margin:0}
 
-.role{margin-bottom:20px}
-.role:last-child{margin-bottom:0}
-.role h3{
+.reveal{border-bottom:1px solid var(--silver-light);padding:14px 0}
+.reveal:first-of-type{padding-top:0}
+.reveal:last-of-type{border-bottom:none;padding-bottom:0}
+.reveal summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:12px;
   font-family:'Inter',Arial,sans-serif;
   font-size:1rem;
   font-weight:600;
   color:var(--blue-dark);
-  margin:0 0 6px;
 }
-.role h3 span{
+.reveal summary::-webkit-details-marker{display:none}
+.reveal summary::before{
+  content:"+";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:var(--blue);
+  color:white;
+  font-size:.95rem;
+  font-weight:700;
+  transition:transform .2s ease;
+}
+.reveal[open] summary::before{transform:rotate(45deg)}
+.reveal summary:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+.reveal .org{
   font-weight:500;
   color:var(--text);
   text-transform:none;
   letter-spacing:0;
 }
+.reveal p{
+  margin:12px 0 0 34px;
+  animation:reveal-in .2s ease;
+}
+@keyframes reveal-in{from{opacity:0} to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .reveal summary::before{transition:none}
+  .reveal p{animation:none}
+}
 
 .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.skills span{
+.skill{
+  position:relative;
   display:inline-block;
   background:var(--ink);
   color:var(--silver-light);
@@ -157,11 +190,42 @@ h2::after{
   border:1px solid var(--ink);
   transition:background .2s ease,color .2s ease,transform .2s ease;
 }
-.skills span:hover{
+.skill:hover,.skill:focus-visible{
   background:var(--blue);
   border-color:var(--blue);
   color:white;
   transform:translateY(-2px);
+  outline:none;
+}
+.skill:focus-visible{box-shadow:0 0 0 2px white,0 0 0 4px var(--blue)}
+.skill .tip{
+  position:absolute;
+  bottom:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%) translateY(4px);
+  width:max-content;
+  max-width:200px;
+  background:var(--ink);
+  color:white;
+  padding:8px 12px;
+  border-radius:6px;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:0;
+  text-transform:none;
+  line-height:1.4;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+  z-index:1;
+}
+.skill:hover .tip,.skill:focus-visible .tip{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+@media (prefers-reduced-motion:reduce){
+  .skill,.skill .tip{transition:none}
 }
 
 footer{
@@ -198,14 +262,14 @@ footer{
 </div>
 <div class="section">
 <h2>Experience</h2>
-<div class="role">
-<h3>Teaching Fellow</h3>
+<details class="reveal">
+<summary>Teaching Fellow</summary>
 <p>Independently led classrooms, developed engaging lesson plans, and taught social studies to 8th-grade students and American Sign Language to students in grades 6–9. Collaborated with fellow educators to improve instruction and classroom management strategies.</p>
-</div>
-<div class="role">
-<h3>Criminal Research Intern <span>&mdash; Convergence Research</span></h3>
+</details>
+<details class="reveal">
+<summary>Criminal Research Intern <span class="org">&mdash; Convergence Research</span></summary>
 <p>Conducted research in support of criminal and civil background investigations for a research and background-screening firm based in West Chester, Ohio.</p>
-</div>
+</details>
 </div>
 <div class="section">
 <h2>Leadership</h2>
@@ -214,12 +278,12 @@ footer{
 <div class="section">
 <h2>Skills</h2>
 <div class="skills">
-<span>Teaching</span>
-<span>Communication</span>
-<span>Public Speaking</span>
-<span>Leadership</span>
-<span>Management</span>
-<span>Adaptability</span>
+<span class="skill" tabindex="0">Teaching<span class="tip">Led ASL and social studies classrooms as a Teaching Fellow</span></span>
+<span class="skill" tabindex="0">Communication<span class="tip">Builds trust across students, colleagues, and stakeholders</span></span>
+<span class="skill" tabindex="0">Public Speaking<span class="tip">Comfortable presenting to classrooms and student government</span></span>
+<span class="skill" tabindex="0">Leadership<span class="tip">Committee Chair &amp; Senator at Large, Xavier SGA</span></span>
+<span class="skill" tabindex="0">Management<span class="tip">Minor in Management, Xavier University</span></span>
+<span class="skill" tabindex="0">Adaptability<span class="tip">Moves easily between teaching, research, and leadership work</span></span>
 </div>
 </div>
 <div class="section">
