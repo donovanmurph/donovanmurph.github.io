@@ -94,6 +94,8 @@ main{max-width:920px;margin:-70px auto 0;padding:0 20px 50px;position:relative}
 .section:nth-of-type(2){animation-delay:.15s}
 .section:nth-of-type(3){animation-delay:.25s}
 .section:nth-of-type(4){animation-delay:.35s}
+.section:nth-of-type(5){animation-delay:.45s}
+.section:nth-of-type(6){animation-delay:.55s}
 
 @keyframes rise{
   to{opacity:1;transform:translateY(0)}
@@ -125,6 +127,22 @@ h2::after{
 }
 
 .section p{color:var(--text);margin:0}
+
+.role{margin-bottom:20px}
+.role:last-child{margin-bottom:0}
+.role h3{
+  font-family:'Inter',Arial,sans-serif;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--blue-dark);
+  margin:0 0 6px;
+}
+.role h3 span{
+  font-weight:500;
+  color:var(--text);
+  text-transform:none;
+  letter-spacing:0;
+}
 
 .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
 .skills span{
@@ -175,8 +193,23 @@ footer{
 <p>I'm a student based in Cincinnati, Ohio with a passion for learning, teaching, and creating meaningful impact. I enjoy taking on new challenges, building skills through hands-on experience, and helping others succeed.</p>
 </div>
 <div class="section">
+<h2>Education</h2>
+<p>B.A. in History, Xavier University</p>
+</div>
+<div class="section">
 <h2>Experience</h2>
-<p>As a Teaching Fellow, I independently led classrooms, developed engaging lesson plans, and taught social studies to 8th-grade students and American Sign Language to students in grades 6–9. I collaborated with fellow educators to improve instruction and classroom management strategies.</p>
+<div class="role">
+<h3>Teaching Fellow</h3>
+<p>Independently led classrooms, developed engaging lesson plans, and taught social studies to 8th-grade students and American Sign Language to students in grades 6–9. Collaborated with fellow educators to improve instruction and classroom management strategies.</p>
+</div>
+<div class="role">
+<h3>Criminal Research Intern <span>&mdash; Convergence Research</span></h3>
+<p>Conducted research in support of criminal and civil background investigations for a research and background-screening firm based in West Chester, Ohio.</p>
+</div>
+</div>
+<div class="section">
+<h2>Leadership</h2>
+<p>Xavier University Student Government Association &mdash; Committee Chair, Student Organizations Committee, and Senator at Large.</p>
 </div>
 <div class="section">
 <h2>Skills</h2>
